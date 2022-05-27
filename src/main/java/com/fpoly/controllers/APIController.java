@@ -52,7 +52,7 @@ public class APIController {
 		Optional<Posts> postOptional = repository.findById(id);
 		return postOptional.map(p -> {
 			post.setId(p.getId());
-			return new ResponseEntity<>(repository.save(p), HttpStatus.OK);
+			return new ResponseEntity<>(repository.save(post), HttpStatus.OK);
 		}).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 
